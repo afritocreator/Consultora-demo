@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="es">
+<head><meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body { font-family: system-ui, sans-serif; color: #19324a; background: #fff;
+       max-width: 960px; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; }
+a { color: #12667b; }
+.aviso-demo { padding: 1rem; background: #edf5f8; border-radius: .5rem; }
+.navegacion-demo { display: flex; gap: 1rem; flex-wrap: wrap; margin: 1rem 0; }
+table { border-collapse: collapse; width: 100%; }
+td, th { padding: .5rem; text-align: left; border-bottom: 1px solid #ddd; }
+</style>
+<meta charset="utf-8">
+<meta name="color-scheme" content="light">
+<title>Tablero de gestión — NextByte Software SA</title>
+<style>
+/* color-scheme fijo (ver el <meta> del <head>): el artefacto es
+   autocontenido y puede abrirse en cualquier navegador/dispositivo, con
+   cualquier modo oscuro del sistema -- fondo y color explícitos para no
+   depender de que el navegador infiera el contraste correcto. */
+body { font-family: Arial, Helvetica, sans-serif; color: #1a1a1a; background: #ffffff;
+       max-width: 960px; margin: 2rem auto; padding: 0 1rem; }
+h1 { color: #14324D; }
+h2 { color: #14324D; border-bottom: 2px solid #14324D; padding-bottom: 0.3rem;
+     margin-top: 2rem; }
+.resumen { color: #444; margin-bottom: 1.5rem; }
+.kpis { display: flex; flex-wrap: wrap; gap: 1rem; margin: 1rem 0; }
+.kpi-card { border: 1px solid #ddd; border-radius: 8px; padding: 0.9rem 1.1rem;
+            min-width: 190px; }
+.kpi-etiqueta { color: #555; font-size: 0.85rem; }
+.kpi-valor { font-size: 1.6rem; font-weight: bold; color: #14324D; margin: 0.2rem 0 0.4rem; }
+.kpi-rango { color: #777; font-size: 0.75rem; margin-top: 0.3rem; }
+.altman-card { border-left: 6px solid #999; }
+.altman-card.segura { border-left-color: #1a7f37; }
+.altman-card.gris { border-left-color: #9a7d0a; }
+.altman-card.riesgo { border-left-color: #b00020; }
+.alerta { background: #FDECEA; border-left: 4px solid #B00020; color: #B00020;
+          padding: 0.75rem 1rem; font-weight: bold; margin: 1rem 0; border-radius: 4px; }
+.sin-datos { color: #777; font-style: italic; }
+table { border-collapse: collapse; width: 100%; margin: 0.75rem 0; }
+th, td { text-align: left; padding: 0.4rem 0.6rem; border-bottom: 1px solid #ddd; }
+th { background: #14324D; color: #fff; }
+</style>
+</head>
+<body><p class="aviso-demo">Demo del proyecto Consultora con empresas ficticias. No admite datos de clientes. Los ejemplos ilustran capacidades del software y requieren revisión de supuestos antes de un uso profesional.</p><nav class="navegacion-demo" aria-label="Navegación de la demo"><a href="index.html">Catálogo de ejemplos</a><a href="tablero_software_cepit.html" download>Descargar esta página HTML</a></nav>
+<h1>Tablero de gestión — NextByte Software SA</h1>
+<p class="resumen">Serie de 3 períodos (2023-12-31 a 2025-12-31).</p>
+
+<p class="resumen">Semáforo relativo, NUNCA una probabilidad de quiebra. Ver core/finanzas/altman.py.</p>
+
+<h2>Núcleo fijo</h2>
+<div class="kpis">
+<div class="kpi-card"><div class="kpi-etiqueta">Liquidez corriente</div><div class="kpi-valor">2.55</div><svg width="200" height="44" viewBox="0 0 200 44"><line x1="0" y1="22.0" x2="200" y2="22.0" stroke="#14324D" stroke-width="2"/><circle cx="200" cy="22.0" r="3" fill="#14324D"/></svg><div class="kpi-rango">mín 2.55 · máx 2.55</div></div><div class="kpi-card"><div class="kpi-etiqueta">CCC (días)</div><div class="kpi-valor">35.0</div><svg width="200" height="44" viewBox="0 0 200 44"><line x1="0" y1="22.0" x2="200" y2="22.0" stroke="#14324D" stroke-width="2"/><circle cx="200" cy="22.0" r="3" fill="#14324D"/></svg><div class="kpi-rango">mín 35.0 · máx 35.0</div></div><div class="kpi-card"><div class="kpi-etiqueta">Margen neto</div><div class="kpi-valor">23.73%</div><svg width="200" height="44" viewBox="0 0 200 44"><line x1="0" y1="22.0" x2="200" y2="22.0" stroke="#14324D" stroke-width="2"/><circle cx="200" cy="22.0" r="3" fill="#14324D"/></svg><div class="kpi-rango">mín 23.72% · máx 23.73%</div></div>
+<div class="kpi-card altman-card segura"><div class="kpi-etiqueta">Semáforo de Altman</div><div class="kpi-valor">SEGURA</div><div>Z'' = 12.00</div><svg width="200" height="44" viewBox="0 0 200 44"><polyline points="0.0,0.0 100.0,28.6 200.0,44.0" fill="none" stroke="#14324D" stroke-width="2"/><circle cx="200.0" cy="44.0" r="3" fill="#14324D"/></svg><div class="kpi-rango">mín 12.00 · máx 12.48</div></div>
+</div>
+
+<h2>Indicadores del sector</h2><div class="kpis"><div class="kpi-card"><div class="kpi-etiqueta">Churn diciembre 2025 (ficticio)</div><div class="kpi-valor">4.0%</div></div><div class="kpi-card"><div class="kpi-etiqueta">CAC diciembre 2025 (ficticio)</div><div class="kpi-valor">$ 400,000.00</div></div></div>
+
+<h2>Alertas para revisar</h2><p class="sin-datos">No hubo alertas con el umbral declarado.</p>
+
+
+
+</body>
+</html>

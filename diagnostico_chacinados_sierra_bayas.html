@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="es">
+<head><meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body { font-family: system-ui, sans-serif; color: #19324a; background: #fff;
+       max-width: 960px; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; }
+a { color: #12667b; }
+.aviso-demo { padding: 1rem; background: #edf5f8; border-radius: .5rem; }
+.navegacion-demo { display: flex; gap: 1rem; flex-wrap: wrap; margin: 1rem 0; }
+table { border-collapse: collapse; width: 100%; }
+td, th { padding: .5rem; text-align: left; border-bottom: 1px solid #ddd; }
+</style>
+<meta charset="utf-8">
+<meta name="color-scheme" content="light">
+<title>Diagnóstico financiero — Chacinados Sierra Bayas</title>
+<style>
+/* fondo y color explícitos (ver el <meta color-scheme> del <head>):
+   este HTML es autocontenido y un cliente puede abrirlo con cualquier
+   modo oscuro del sistema -- sin esto, algunos navegadores infieren un
+   fondo oscuro para `body` y el texto casi negro queda ilegible
+   (encontrado al construir core/reportes/tablero.py, mismo problema). */
+body { font-family: Arial, Helvetica, sans-serif; color: #1a1a1a; background: #ffffff;
+       max-width: 860px; margin: 2rem auto; padding: 0 1rem; }
+h1 { color: #14324D; }
+h2 { color: #14324D; border-bottom: 2px solid #14324D; padding-bottom: 0.3rem;
+     margin-top: 2rem; }
+table { border-collapse: collapse; width: 100%; margin: 0.75rem 0; }
+th, td { text-align: left; padding: 0.4rem 0.6rem; border-bottom: 1px solid #ddd; }
+th { background: #14324D; color: #fff; }
+.advertencia { background: #FDECEA; border-left: 4px solid #B00020; color: #B00020;
+               padding: 0.75rem 1rem; font-weight: bold; margin: 1rem 0; }
+.resumen-item { display: inline-block; margin-right: 2.5rem; margin-bottom: 0.5rem; }
+.resumen-item .valor { font-size: 1.4rem; font-weight: bold; color: #14324D; }
+</style>
+</head>
+<body><p class="aviso-demo">Demo del proyecto Consultora con empresas ficticias. No admite datos de clientes. Los ejemplos ilustran capacidades del software y requieren revisión de supuestos antes de un uso profesional.</p><nav class="navegacion-demo" aria-label="Navegación de la demo"><a href="index.html">Catálogo de ejemplos</a><a href="diagnostico_chacinados_sierra_bayas.html" download>Descargar esta página HTML</a></nav>
+<h1>Diagnóstico financiero — Chacinados Sierra Bayas</h1>
+<p>Cierre: 2025-12-31</p>
+
+<h2>Altman Z-Score</h2>
+<p>Variante: <strong>Z'</strong> —
+Valor: <strong>4.81</strong> —
+Zona: <strong>SEGURA</strong></p>
+<div class="advertencia">⚠ Semáforo relativo, NUNCA una probabilidad de quiebra. Ver core/finanzas/altman.py.</div>
+
+<div class="resumen-item"><div>ROE</div><div class="valor">28.48%</div></div>
+<div class="resumen-item"><div>Liquidez corriente</div><div class="valor">3.01</div></div>
+<div class="resumen-item"><div>CCC (días)</div><div class="valor">115.0</div></div>
+
+<h2>Ratios financieros</h2>
+<table><thead><tr><th>Indicador</th><th>Valor</th></tr></thead><tbody><tr><td>Liquidez corriente</td><td>3.01</td></tr>
+<tr><td>Prueba ácida</td><td>1.04</td></tr>
+<tr><td>Capital de trabajo</td><td>$268,999,123.66</td></tr>
+<tr><td>Endeudamiento total</td><td>36.03%</td></tr>
+<tr><td>Endeudamiento patrimonial</td><td>0.56</td></tr>
+<tr><td>Margen bruto</td><td>30.00%</td></tr>
+<tr><td>Margen neto</td><td>8.45%</td></tr>
+<tr><td>ROE (Return on Equity)</td><td>28.48%</td></tr>
+<tr><td>ROA (Return on Assets)</td><td>18.22%</td></tr>
+<tr><td>Rotación de activos</td><td>2.16</td></tr>
+<tr><td>EBITDA</td><td>$188,706,723.61</td></tr></tbody></table>
+<h2>Ciclo de Conversión de Efectivo</h2>
+<table><thead><tr><th>Indicador</th><th>Valor</th></tr></thead><tbody><tr><td>DSO — Días de venta pendientes de cobro</td><td>30.0</td></tr>
+<tr><td>DIO — Días de inventario</td><td>120.0</td></tr>
+<tr><td>DPO — Días de cuentas por pagar</td><td>35.0</td></tr>
+<tr><td>Ciclo de Conversión de Efectivo (CCC)</td><td>115.0</td></tr></tbody></table>
+<h2>Descomposición DuPont del ROE</h2>
+<table><thead><tr><th>Indicador</th><th>Valor</th></tr></thead><tbody><tr><td>ROE (DuPont 3 factores)</td><td>28.48%</td></tr>
+<tr><td>ROE (DuPont 5 factores)</td><td>28.48%</td></tr>
+<tr><td>Carga tributaria</td><td>0.65</td></tr>
+<tr><td>Carga financiera</td><td>0.87</td></tr>
+<tr><td>Margen operativo</td><td>15.00%</td></tr>
+<tr><td>Rotación de activos</td><td>2.16</td></tr>
+<tr><td>Multiplicador de capital</td><td>1.56</td></tr></tbody></table>
+
+
+
+</body>
+</html>
