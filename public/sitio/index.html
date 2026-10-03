@@ -1,0 +1,670 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Consultoría económica AI-native — Tandil</title>
+<meta name="description" content="Control de gestión, diagnóstico financiero y decisiones basadas en datos para pymes de Tandil, construido con inteligencia artificial de frontera.">
+<style>
+  :root {
+    --azul: #14324d;
+    --azul-claro: #1f6fb2;
+    --verde: #1a7f37;
+    --amarillo: #9a7d0a;
+    --rojo: #b00020;
+    --fondo: #f7f9fb;
+    --texto: #1a1a1a;
+    --borde: #d7e0e8;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--texto);
+    background: var(--fondo);
+    line-height: 1.55;
+  }
+  header.hero {
+    background: linear-gradient(135deg, var(--azul) 0%, #1f4e79 100%);
+    color: white;
+    padding: 4rem 1.5rem 3rem;
+    text-align: center;
+  }
+  header.hero h1 {
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    margin: 0 0 1rem;
+  }
+  header.hero p {
+    font-size: 1.15rem;
+    max-width: 700px;
+    margin: 0 auto;
+    color: #dbe6ef;
+  }
+  nav {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+  nav a {
+    color: white;
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.4);
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-size: 0.95rem;
+  }
+  nav a:hover { background: rgba(255,255,255,0.12); }
+  main { max-width: 960px; margin: 0 auto; padding: 0 1.5rem; }
+  section { padding: 3rem 0; border-bottom: 1px solid var(--borde); }
+  section:last-of-type { border-bottom: none; }
+  h2 {
+    color: var(--azul);
+    font-size: 1.6rem;
+    margin-top: 0;
+  }
+  .servicios-grid, .sectores-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.25rem;
+    margin-top: 1.5rem;
+  }
+  .card {
+    background: white;
+    border: 1px solid var(--borde);
+    border-radius: 10px;
+    padding: 1.25rem;
+  }
+  .card h3 { margin-top: 0; color: var(--azul); font-size: 1.05rem; }
+  .card p { font-size: 0.92rem; color: #445; margin-bottom: 0; }
+  .demo-note {
+    background: #fff7e0;
+    border: 1px solid #e8d38a;
+    border-radius: 8px;
+    padding: 0.9rem 1.1rem;
+    font-size: 0.9rem;
+    margin: 1.5rem 0;
+  }
+  .calc {
+    background: white;
+    border: 1px solid var(--borde);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+  }
+  .calc h3 { margin-top: 0; color: var(--azul); }
+  .campo { margin-bottom: 1rem; }
+  .campo label { display: block; font-size: 0.88rem; font-weight: 600; margin-bottom: 0.3rem; }
+  .campo input, .campo select {
+    width: 100%;
+    padding: 0.55rem 0.7rem;
+    border: 1px solid var(--borde);
+    border-radius: 6px;
+    font-size: 0.95rem;
+  }
+  .fila { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  @media (max-width: 480px) { .fila { grid-template-columns: 1fr; } }
+  button {
+    background: var(--azul-claro);
+    color: white;
+    border: none;
+    padding: 0.65rem 1.4rem;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    cursor: pointer;
+  }
+  button:hover { background: var(--azul); }
+  .resultado {
+    margin-top: 1.25rem;
+    padding: 1rem;
+    border-radius: 8px;
+    background: #eef6f0;
+    border: 1px solid var(--verde);
+    display: none;
+  }
+  .resultado.visible { display: block; }
+  .resultado .valor-grande { font-size: 1.5rem; font-weight: 700; color: var(--verde); }
+  .resultado .detalle { font-size: 0.88rem; color: #556; margin-top: 0.4rem; }
+  footer {
+    text-align: center;
+    padding: 2rem 1.5rem;
+    font-size: 0.85rem;
+    color: #778;
+  }
+  .radio-group { display: flex; gap: 1.25rem; margin-top: 0.3rem; }
+  .radio-group label { font-weight: 400; font-size: 0.9rem; display: flex; align-items: center; gap: 0.35rem; }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <h1>Consultoría económica AI-native</h1>
+  <p>
+    Control de gestión, diagnóstico financiero y decisiones basadas en
+    datos para pymes de Tandil — construido con las mismas herramientas
+    de inteligencia artificial que usan las empresas de software de la
+    ciudad.
+  </p>
+  <nav>
+    <a href="#servicios">Servicios</a>
+    <a href="#sectores">Para quién</a>
+    <a href="#calculadoras">Calculadoras gratuitas</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+</header>
+
+<main>
+
+<section id="servicios">
+  <h2>Qué hacemos</h2>
+  <div class="servicios-grid">
+    <div class="card">
+      <h3>Control de gestión mensual</h3>
+      <p>Ratios, ciclo de conversión de efectivo y semáforo de solvencia
+      actualizados todos los meses, con una reunión de devolución — no
+      solo una planilla que nadie lee.</p>
+    </div>
+    <div class="card">
+      <h3>Diagnóstico financiero</h3>
+      <p>Un análisis completo de la salud financiera de tu empresa:
+      liquidez, endeudamiento, rentabilidad y el modelo de Altman
+      correcto para pymes que no cotizan en bolsa (no la fórmula genérica
+      que usan mal la mayoría de las herramientas online).</p>
+    </div>
+    <div class="card">
+      <h3>Evaluación de proyectos e inversiones</h3>
+      <p>VAN, TIR, análisis de escenarios y simulación Monte Carlo, en
+      pesos constantes — para decisiones de inversión que no se
+      distorsionen por la inflación.</p>
+    </div>
+    <div class="card">
+      <h3>Planes de negocio y financiamiento</h3>
+      <p>Formulación y evaluación de proyectos, valuación de empresa,
+      carpetas para líneas de crédito y programas de apoyo a pymes.</p>
+    </div>
+  </div>
+</section>
+
+<section id="sectores">
+  <h2>Para quién</h2>
+  <p>Herramientas específicas, no una plantilla genérica adaptada a cada
+  sector.</p>
+  <div class="sectores-grid">
+    <div class="card">
+      <h3>Láctea y quesera</h3>
+      <p>Costo por kg de queso terminado, capital inmovilizado en cámara
+      de maduración, relación de canje leche-queso.</p>
+    </div>
+    <div class="card">
+      <h3>Software y servicios exportados</h3>
+      <p>Costo por hora de desarrollador, rentabilidad por proyecto,
+      métricas SaaS (churn, LTV, CAC) y costo de la brecha cambiaria.</p>
+    </div>
+    <div class="card">
+      <h3>Comercio</h3>
+      <p>Rotación de stock, margen por categoría, punto de equilibrio
+      multiproducto.</p>
+    </div>
+    <div class="card">
+      <h3>Agro y chacinados</h3>
+      <p>Margen bruto por hectárea, escandallo de receta con mermas,
+      estacionalidad de venta. <em>(en desarrollo)</em></p>
+    </div>
+  </div>
+  <div class="demo-note">
+    Todas las herramientas de arriba están construidas y funcionando
+    sobre datos de demostración. Pedí una demo en vivo con tu propio
+    balance en la sección de contacto.
+  </div>
+</section>
+
+<section id="calculadoras">
+  <h2>Calculadoras gratuitas</h2>
+  <p>Sin registro, sin enviar tus datos a ningún lado — todo se calcula
+  en tu navegador.</p>
+
+  <div class="calc">
+    <h3>Inflación y pesos constantes</h3>
+    <p style="font-size:0.9rem;color:#556;">¿Cuánto necesitás cobrar hoy
+    para tener el mismo poder de compra que un monto de otra fecha? Usa
+    el IPC real de INDEC.</p>
+    <div class="fila">
+      <div class="campo">
+        <label for="monto-inflacion">Monto</label>
+        <input type="number" id="monto-inflacion" value="100000" min="0">
+      </div>
+      <div class="campo">
+        <label for="fecha-origen">Fecha de origen</label>
+        <select id="fecha-origen"></select>
+      </div>
+    </div>
+    <div class="campo">
+      <label for="fecha-destino">Fecha de destino</label>
+      <select id="fecha-destino"></select>
+    </div>
+    <button onclick="calcularInflacion()">Calcular</button>
+    <div class="resultado" id="resultado-inflacion">
+      <div class="valor-grande" id="resultado-inflacion-valor"></div>
+      <div class="detalle" id="resultado-inflacion-detalle"></div>
+    </div>
+  </div>
+
+  <div class="calc">
+    <h3>Margen y precio de venta</h3>
+    <p style="font-size:0.9rem;color:#556;">Calculá tu precio de venta a
+    partir del costo, y ajustalo si vendés a plazo — cobrar a 60 días no
+    es lo mismo que cobrar contado.</p>
+    <div class="fila">
+      <div class="campo">
+        <label for="costo-unitario">Costo unitario</label>
+        <input type="number" id="costo-unitario" value="1000" min="0">
+      </div>
+      <div class="campo">
+        <label for="margen-deseado">Margen deseado (%)</label>
+        <input type="number" id="margen-deseado" value="30" min="0" max="99">
+      </div>
+    </div>
+    <div class="campo">
+      <label>¿El margen es sobre...?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="tipo-margen" value="costo" checked> el costo</label>
+        <label><input type="radio" name="tipo-margen" value="precio"> el precio de venta</label>
+      </div>
+    </div>
+    <div class="fila">
+      <div class="campo">
+        <label for="plazo-cobro">Plazo de cobro (días, 0 = contado)</label>
+        <input type="number" id="plazo-cobro" value="0" min="0">
+      </div>
+      <div class="campo">
+        <label for="inflacion-mensual">Inflación mensual esperada (%)</label>
+        <input type="number" id="inflacion-mensual" value="0" min="0" step="0.1">
+      </div>
+    </div>
+    <button onclick="calcularMargen()">Calcular</button>
+    <div class="resultado" id="resultado-margen">
+      <div class="valor-grande" id="resultado-margen-valor"></div>
+      <div class="detalle" id="resultado-margen-detalle"></div>
+    </div>
+  </div>
+
+  <div class="calc">
+    <h3>Indexación de contratos por ICL</h3>
+    <p style="font-size:0.9rem;color:#556;">¿Cuánto tenés que actualizar un
+    alquiler o contrato indexado por el Índice para Contratos de Locación
+    (Ley 27.551)? Usa la serie oficial del BCRA.</p>
+    <div class="fila">
+      <div class="campo">
+        <label for="monto-icl">Monto original</label>
+        <input type="number" id="monto-icl" value="100000" min="0">
+      </div>
+      <div class="campo">
+        <label for="fecha-origen-icl">Fecha del contrato / última actualización</label>
+        <select id="fecha-origen-icl"></select>
+      </div>
+    </div>
+    <div class="campo">
+      <label for="fecha-destino-icl">Fecha a la que actualizar</label>
+      <select id="fecha-destino-icl"></select>
+    </div>
+    <button onclick="calcularIcl()">Calcular</button>
+    <div class="resultado" id="resultado-icl">
+      <div class="valor-grande" id="resultado-icl-valor"></div>
+      <div class="detalle" id="resultado-icl-detalle"></div>
+    </div>
+  </div>
+
+  <div class="calc">
+    <h3>Monotributo vs. Responsable Inscripto (estimado)</h3>
+    <p style="font-size:0.9rem;color:#556;">Compara la cuota de Monotributo
+    (categorías oficiales de ARCA/ARBA) contra una carga de Responsable
+    Inscripto que vos mismo estimás. No calcula Ganancias, Autónomos ni
+    Ingresos Brutos de RI -- esos montos los cargás vos (o te los pasa tu
+    contador), porque este sitio no tiene esas escalas verificadas.</p>
+    <div class="demo-note">
+      Estimación orientativa para dimensionar el orden de magnitud, NO un
+      consejo fiscal. La decisión de inscribirte en Monotributo o RI se
+      confirma siempre con un contador matriculado.
+    </div>
+    <div class="campo">
+      <label for="facturacion-anual">Facturación anual estimada (para ubicar la categoría de Monotributo)</label>
+      <input type="number" id="facturacion-anual" value="20000000" min="0" step="100000">
+    </div>
+    <p style="font-size:0.85rem;color:#556;margin-bottom:0.5rem;">Carga mensual estimada como Responsable Inscripto (montos que ya tenés o estimás vos):</p>
+    <div class="fila">
+      <div class="campo">
+        <label for="ri-iva">IVA neto a pagar por mes</label>
+        <input type="number" id="ri-iva" value="0" min="0">
+      </div>
+      <div class="campo">
+        <label for="ri-ganancias">Ganancias estimado por mes</label>
+        <input type="number" id="ri-ganancias" value="0" min="0">
+      </div>
+    </div>
+    <div class="fila">
+      <div class="campo">
+        <label for="ri-autonomos">Autónomos por mes</label>
+        <input type="number" id="ri-autonomos" value="0" min="0">
+      </div>
+      <div class="campo">
+        <label for="ri-iibb">Ingresos Brutos por mes</label>
+        <input type="number" id="ri-iibb" value="0" min="0">
+      </div>
+    </div>
+    <button onclick="calcularMonotributo()">Calcular</button>
+    <div class="resultado" id="resultado-monotributo">
+      <div class="valor-grande" id="resultado-monotributo-valor"></div>
+      <div class="detalle" id="resultado-monotributo-detalle"></div>
+    </div>
+  </div>
+</section>
+
+<section id="contacto">
+  <h2>Contacto</h2>
+  <p>
+    Completar cuando esté definido el canal (email / formulario) —
+    ver <code>docs/comercial/plan-de-contacto.md</code>.
+  </p>
+</section>
+
+</main>
+
+<footer>
+  Datos de IPC: INDEC vía datos.gob.ar. Datos de ICL: BCRA. Categorías de
+  Monotributo: ARCA/ARBA. Las calculadoras no guardan ni envían ningún
+  dato — todo el cálculo ocurre en tu navegador.
+</footer>
+
+<script>
+// Índice de la última fecha de `serie` que no sea posterior a hoy
+// (docs/auditoria-herramientas-2026-08.md hallazgo G): algunas series
+// (ej. ICL, que el BCRA publica adelantado) tienen fechas futuras, y
+// `serie.length - 1` como default de "fecha destino" indexaba a una
+// fecha que todavía no llegó, sin ningún indicio en la interfaz. Los
+// `fecha` de estos JSON son ISO "AAAA-MM-DD", comparables como string.
+function indiceUltimaFechaHastaHoy(serie) {
+  const hoy = new Date().toISOString().slice(0, 10);
+  for (let i = serie.length - 1; i >= 0; i--) {
+    if (serie[i].fecha <= hoy) return i;
+  }
+  return serie.length - 1;
+}
+
+let ipcSerie = [];
+let ipcEstado = 'cargando'; // 'cargando' | 'listo' | 'error'
+
+async function cargarIpc() {
+  try {
+    const resp = await fetch('data/ipc.json');
+    if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+    const data = await resp.json();
+    ipcSerie = data.serie;
+
+    const selOrigen = document.getElementById('fecha-origen');
+    const selDestino = document.getElementById('fecha-destino');
+    const meses = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+
+    ipcSerie.forEach((punto, i) => {
+      const [anio, mes] = punto.fecha.split('-');
+      const etiqueta = `${meses[parseInt(mes,10)-1]} ${anio}`;
+      const optA = new Option(etiqueta, i);
+      const optB = new Option(etiqueta, i);
+      selOrigen.add(optA);
+      selDestino.add(optB);
+    });
+
+    selOrigen.selectedIndex = 0;
+    selDestino.selectedIndex = indiceUltimaFechaHastaHoy(ipcSerie);
+    ipcEstado = 'listo';
+  } catch (err) {
+    console.error('No se pudo cargar data/ipc.json', err);
+    ipcEstado = 'error';
+  }
+}
+
+function calcularInflacion() {
+  const valorEl = document.getElementById('resultado-inflacion-valor');
+  const detalleEl = document.getElementById('resultado-inflacion-detalle');
+
+  // Guard de "todavía no cargó" (hallazgo F) -- antes solo lo tenía
+  // calcularMonotributo(); sin esto, un clic rápido con el fetch en
+  // vuelo daba un TypeError silencioso en la consola, sin nada visible.
+  if (ipcEstado !== 'listo') {
+    valorEl.textContent = ipcEstado === 'error'
+      ? 'No se pudo cargar la serie de IPC -- recargá la página.'
+      : 'Cargando datos...';
+    detalleEl.textContent = '';
+    document.getElementById('resultado-inflacion').classList.add('visible');
+    return;
+  }
+
+  const monto = parseFloat(document.getElementById('monto-inflacion').value) || 0;
+  const iOrigen = parseInt(document.getElementById('fecha-origen').value, 10);
+  const iDestino = parseInt(document.getElementById('fecha-destino').value, 10);
+
+  const indiceOrigen = ipcSerie[iOrigen].indice;
+  const indiceDestino = ipcSerie[iDestino].indice;
+  const coeficiente = indiceDestino / indiceOrigen;
+  const resultado = monto * coeficiente;
+  const inflacionAcumulada = (coeficiente - 1) * 100;
+
+  let detalle = `Inflación acumulada en el período: ${inflacionAcumulada.toFixed(1)}% · coeficiente ${coeficiente.toFixed(4)}`;
+  if (iDestino < iOrigen) {
+    // Hallazgo H: sin este aviso, invertir origen/destino daba una
+    // deflación presentada con la misma cara que una actualización normal.
+    detalle = '⚠ Fecha destino anterior a la de origen: esto es una actualización retroactiva (el monto sale MENOR al original), no la proyección hacia adelante habitual. ' + detalle;
+  }
+
+  valorEl.textContent = '$' + resultado.toLocaleString('es-AR', {maximumFractionDigits: 0});
+  detalleEl.textContent = detalle;
+  document.getElementById('resultado-inflacion').classList.add('visible');
+}
+
+let iclSerie = [];
+let iclEstado = 'cargando';
+let monotributoCategorias = null;
+let monotributoNombresOrdenados = [];
+let monotributoEstado = 'cargando';
+
+async function cargarIcl() {
+  try {
+    const resp = await fetch('data/icl.json');
+    if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+    const data = await resp.json();
+    iclSerie = data.serie;
+
+    const selOrigen = document.getElementById('fecha-origen-icl');
+    const selDestino = document.getElementById('fecha-destino-icl');
+
+    iclSerie.forEach((punto, i) => {
+      const optA = new Option(punto.fecha, i);
+      const optB = new Option(punto.fecha, i);
+      selOrigen.add(optA);
+      selDestino.add(optB);
+    });
+
+    selOrigen.selectedIndex = 0;
+    selDestino.selectedIndex = indiceUltimaFechaHastaHoy(iclSerie);
+    iclEstado = 'listo';
+  } catch (err) {
+    console.error('No se pudo cargar data/icl.json', err);
+    iclEstado = 'error';
+  }
+}
+
+function calcularIcl() {
+  const valorEl = document.getElementById('resultado-icl-valor');
+  const detalleEl = document.getElementById('resultado-icl-detalle');
+
+  if (iclEstado !== 'listo') {
+    valorEl.textContent = iclEstado === 'error'
+      ? 'No se pudo cargar la serie de ICL -- recargá la página.'
+      : 'Cargando datos...';
+    detalleEl.textContent = '';
+    document.getElementById('resultado-icl').classList.add('visible');
+    return;
+  }
+
+  const monto = parseFloat(document.getElementById('monto-icl').value) || 0;
+  const iOrigen = parseInt(document.getElementById('fecha-origen-icl').value, 10);
+  const iDestino = parseInt(document.getElementById('fecha-destino-icl').value, 10);
+
+  const iclOrigen = iclSerie[iOrigen].icl;
+  const iclDestino = iclSerie[iDestino].icl;
+  const coeficiente = iclDestino / iclOrigen;
+  const resultado = monto * coeficiente;
+  const variacion = (coeficiente - 1) * 100;
+
+  let detalle = `Variación del ICL en el período: ${variacion.toFixed(1)}% · coeficiente ${coeficiente.toFixed(4)}`;
+  if (iDestino < iOrigen) {
+    detalle = '⚠ Fecha destino anterior a la de origen: esto es una actualización retroactiva (el monto sale MENOR al original). ' + detalle;
+  }
+
+  valorEl.textContent = '$' + resultado.toLocaleString('es-AR', {maximumFractionDigits: 0});
+  detalleEl.textContent = detalle;
+  document.getElementById('resultado-icl').classList.add('visible');
+}
+
+async function cargarMonotributo() {
+  try {
+    const resp = await fetch('data/monotributo.json');
+    if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+    const data = await resp.json();
+    monotributoCategorias = data.categorias;
+    // Orden explícito por tope de ingresos brutos (hallazgo R): no
+    // confiar en el orden de Object.keys() del JSON, que hereda el
+    // orden del YAML fuente -- si alguna vez se reordenara, la
+    // calculadora elegiría una categoría más barata en silencio.
+    monotributoNombresOrdenados = Object.keys(monotributoCategorias).sort(
+      (a, b) => monotributoCategorias[a].ingresos_brutos_anuales_max
+              - monotributoCategorias[b].ingresos_brutos_anuales_max
+    );
+    monotributoEstado = 'listo';
+  } catch (err) {
+    console.error('No se pudo cargar data/monotributo.json', err);
+    monotributoEstado = 'error';
+  }
+}
+
+function calcularMonotributo() {
+  const facturacionAnual = parseFloat(document.getElementById('facturacion-anual').value) || 0;
+  const ivaMensual = parseFloat(document.getElementById('ri-iva').value) || 0;
+  const gananciasMensual = parseFloat(document.getElementById('ri-ganancias').value) || 0;
+  const autonomosMensual = parseFloat(document.getElementById('ri-autonomos').value) || 0;
+  const iibbMensual = parseFloat(document.getElementById('ri-iibb').value) || 0;
+  const cargaRiMensual = ivaMensual + gananciasMensual + autonomosMensual + iibbMensual;
+
+  const detalleEl = document.getElementById('resultado-monotributo-detalle');
+  const valorEl = document.getElementById('resultado-monotributo-valor');
+
+  if (monotributoEstado === 'error') {
+    valorEl.textContent = 'No se pudo cargar las categorías de Monotributo -- recargá la página.';
+    detalleEl.textContent = '';
+    document.getElementById('resultado-monotributo').classList.add('visible');
+    return;
+  }
+  if (!monotributoCategorias) {
+    valorEl.textContent = 'Cargando categorías...';
+    detalleEl.textContent = '';
+    document.getElementById('resultado-monotributo').classList.add('visible');
+    return;
+  }
+
+  // Categoría de Monotributo: la primera (en orden ascendente de tope,
+  // ver monotributoNombresOrdenados) cuyo tope de ingresos brutos
+  // anuales alcanza la facturación cargada.
+  let categoriaElegida = null;
+  for (const nombre of monotributoNombresOrdenados) {
+    if (facturacionAnual <= monotributoCategorias[nombre].ingresos_brutos_anuales_max) {
+      categoriaElegida = nombre;
+      break;
+    }
+  }
+
+  if (!categoriaElegida) {
+    valorEl.textContent = 'Superás el tope de Monotributo';
+    detalleEl.textContent =
+      'Con esa facturación anual no podés estar en Monotributo (superás la categoría K) -- tenés que ser Responsable Inscripto.';
+    document.getElementById('resultado-monotributo').classList.add('visible');
+    return;
+  }
+
+  // Cuota total de Monotributo Unificado (servicios): componente nacional
+  // (ARCA) + componente provincial fijo (ARBA), ver
+  // data/parametros/monotributo.yaml -- esta calculadora es solo para
+  // actividad de SERVICIOS (el YAML no trae un total ARCA de venta de
+  // bienes para combinar acá).
+  const cat = monotributoCategorias[categoriaElegida];
+  const monotributoMensual = cat.cuota_total_mensual_arca_servicios + cat.cuota_fija_mensual_arba;
+  const diferencia = cargaRiMensual - monotributoMensual;
+
+  if (diferencia > 0) {
+    valorEl.textContent =
+      'Monotributo (Cat. ' + categoriaElegida + ') te conviene por $' +
+      diferencia.toLocaleString('es-AR', {maximumFractionDigits: 0}) + '/mes';
+  } else if (diferencia < 0) {
+    valorEl.textContent =
+      'RI estimado te conviene por $' +
+      Math.abs(diferencia).toLocaleString('es-AR', {maximumFractionDigits: 0}) + '/mes';
+  } else {
+    valorEl.textContent = 'Empatan en el monto mensual estimado';
+  }
+  detalleEl.textContent =
+    `Categoría ${categoriaElegida}: Monotributo $${monotributoMensual.toLocaleString('es-AR', {maximumFractionDigits: 0})}/mes ` +
+    `(servicios, ARCA+ARBA) vs. RI estimado $${cargaRiMensual.toLocaleString('es-AR', {maximumFractionDigits: 0})}/mes (suma de lo que cargaste arriba). ` +
+    `Estimación orientativa, no reemplaza a un contador matriculado.`;
+  document.getElementById('resultado-monotributo').classList.add('visible');
+}
+
+function calcularMargen() {
+  const costo = parseFloat(document.getElementById('costo-unitario').value) || 0;
+  const margenPct = (parseFloat(document.getElementById('margen-deseado').value) || 0) / 100;
+  const tipoMargen = document.querySelector('input[name="tipo-margen"]:checked').value;
+  const plazoDias = parseFloat(document.getElementById('plazo-cobro').value) || 0;
+  const inflacionMensual = (parseFloat(document.getElementById('inflacion-mensual').value) || 0) / 100;
+
+  const valorEl = document.getElementById('resultado-margen-valor');
+  const detalleEl = document.getElementById('resultado-margen-detalle');
+
+  // Margen sobre precio: precioBase = costo / (1 - margenPct). Con
+  // margenPct >= 100%, el divisor es 0 o negativo -- antes daba
+  // Infinity o un precio negativo sin ningún aviso.
+  if (tipoMargen === 'precio' && margenPct >= 1) {
+    valorEl.textContent = 'El margen sobre el precio de venta tiene que ser menor a 100%.';
+    detalleEl.textContent =
+      'Con 100% o más, el precio implícito da infinito o negativo -- revisá el valor cargado.';
+    document.getElementById('resultado-margen').classList.add('visible');
+    return;
+  }
+
+  let precioBase;
+  if (tipoMargen === 'costo') {
+    precioBase = costo * (1 + margenPct);
+  } else {
+    precioBase = costo / (1 - margenPct);
+  }
+
+  let precioAjustado = precioBase;
+  if (plazoDias > 0 && inflacionMensual > 0) {
+    precioAjustado = precioBase * Math.pow(1 + inflacionMensual, plazoDias / 30);
+  }
+
+  valorEl.textContent = '$' + precioAjustado.toLocaleString('es-AR', {maximumFractionDigits: 2});
+
+  let detalle = `Precio base (contado): $${precioBase.toLocaleString('es-AR', {maximumFractionDigits: 2})}`;
+  if (plazoDias > 0 && inflacionMensual > 0) {
+    const diferencia = precioAjustado - precioBase;
+    detalle += ` · Ajuste por ${plazoDias} días de cobro: +$${diferencia.toLocaleString('es-AR', {maximumFractionDigits: 2})}`;
+  }
+  detalleEl.textContent = detalle;
+  document.getElementById('resultado-margen').classList.add('visible');
+}
+
+cargarIpc();
+cargarIcl();
+cargarMonotributo();
+</script>
+
+</body>
+</html>

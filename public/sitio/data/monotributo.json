@@ -1,0 +1,74 @@
+{
+  "categorias": {
+    "A": {
+      "ingresos_brutos_anuales_max": 12009410.45,
+      "cuota_fija_mensual_arba": 11505,
+      "cuota_fija_mensual_arba_venta_bienes": 10010,
+      "cuota_total_mensual_arca_servicios": 49527.18
+    },
+    "B": {
+      "ingresos_brutos_anuales_max": 17595182.74,
+      "cuota_fija_mensual_arba": 18720,
+      "cuota_fija_mensual_arba_venta_bienes": 16275,
+      "cuota_total_mensual_arca_servicios": 56379.08
+    },
+    "C": {
+      "ingresos_brutos_anuales_max": 24670494.31,
+      "cuota_fija_mensual_arba": 29260,
+      "cuota_fija_mensual_arba_venta_bienes": 25450,
+      "cuota_total_mensual_arca_servicios": 66020.12
+    },
+    "D": {
+      "ingresos_brutos_anuales_max": 30628651.43,
+      "cuota_fija_mensual_arba": 40685,
+      "cuota_fija_mensual_arba_venta_bienes": 35380,
+      "cuota_total_mensual_arca_servicios": 84612.93
+    },
+    "E": {
+      "ingresos_brutos_anuales_max": 36028231.33,
+      "cuota_fija_mensual_arba": 53850,
+      "cuota_fija_mensual_arba_venta_bienes": 46820,
+      "cuota_total_mensual_arca_servicios": 119811.45
+    },
+    "F": {
+      "ingresos_brutos_anuales_max": 45151659.41,
+      "cuota_fija_mensual_arba": 76250,
+      "cuota_fija_mensual_arba_venta_bienes": 66300,
+      "cuota_total_mensual_arca_servicios": 150784.21
+    },
+    "G": {
+      "ingresos_brutos_anuales_max": 53995798.87,
+      "cuota_fija_mensual_arba": 103490,
+      "cuota_fija_mensual_arba_venta_bienes": 90000,
+      "cuota_total_mensual_arca_servicios": 230312.94
+    },
+    "H": {
+      "ingresos_brutos_anuales_max": 81924660.37,
+      "cuota_fija_mensual_arba": 179010,
+      "cuota_fija_mensual_arba_venta_bienes": 155660,
+      "cuota_total_mensual_arca_servicios": 522706.68
+    },
+    "I": {
+      "ingresos_brutos_anuales_max": 91699761.9,
+      "cuota_fija_mensual_arba": 229420,
+      "cuota_fija_mensual_arba_venta_bienes": 199505,
+      "cuota_total_mensual_arca_servicios": 963747.86
+    },
+    "J": {
+      "ingresos_brutos_anuales_max": 105012519.2,
+      "cuota_fija_mensual_arba": 302140,
+      "cuota_fija_mensual_arba_venta_bienes": 262730,
+      "cuota_total_mensual_arca_servicios": 1167299.76
+    },
+    "K": {
+      "ingresos_brutos_anuales_max": 126610838.75,
+      "cuota_fija_mensual_arba": 420750,
+      "cuota_fija_mensual_arba_venta_bienes": 365870,
+      "cuota_total_mensual_arca_servicios": 1614446.04
+    }
+  },
+  "vigencia_desde": "2026-08-01",
+  "vigencia_hasta_estimada": "2027-01-31",
+  "fuente_arca": "https://www.afip.gob.ar/monotributo/categorias.asp",
+  "fuente_arba": "https://www.arba.gov.ar/IBSimplificado/IBS/"
+}
