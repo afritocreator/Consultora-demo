@@ -6,137 +6,58 @@
 <title>Consultoría económica AI-native — Tandil</title>
 <meta name="description" content="Control de gestión, diagnóstico financiero y decisiones basadas en datos para pymes de Tandil, construido con inteligencia artificial de frontera.">
 <style>
-  :root {
-    --azul: #14324d;
-    --azul-claro: #1f6fb2;
-    --verde: #1a7f37;
-    --amarillo: #9a7d0a;
-    --rojo: #b00020;
-    --fondo: #f7f9fb;
-    --texto: #1a1a1a;
-    --borde: #d7e0e8;
-  }
-  * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    color: var(--texto);
-    background: var(--fondo);
-    line-height: 1.55;
-  }
-  header.hero {
-    background: linear-gradient(135deg, var(--azul) 0%, #1f4e79 100%);
-    color: white;
-    padding: 4rem 1.5rem 3rem;
-    text-align: center;
-  }
-  header.hero h1 {
-    font-size: clamp(1.8rem, 4vw, 2.6rem);
-    margin: 0 0 1rem;
-  }
-  header.hero p {
-    font-size: 1.15rem;
-    max-width: 700px;
-    margin: 0 auto;
-    color: #dbe6ef;
-  }
-  nav {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-    margin-top: 2rem;
-  }
-  nav a {
-    color: white;
-    text-decoration: none;
-    border: 1px solid rgba(255,255,255,0.4);
-    padding: 0.5rem 1rem;
-    border-radius: 6px;
-    font-size: 0.95rem;
-  }
-  nav a:hover { background: rgba(255,255,255,0.12); }
-  main { max-width: 960px; margin: 0 auto; padding: 0 1.5rem; }
-  section { padding: 3rem 0; border-bottom: 1px solid var(--borde); }
-  section:last-of-type { border-bottom: none; }
-  h2 {
-    color: var(--azul);
-    font-size: 1.6rem;
-    margin-top: 0;
-  }
-  .servicios-grid, .sectores-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1.25rem;
-    margin-top: 1.5rem;
-  }
-  .card {
-    background: white;
-    border: 1px solid var(--borde);
-    border-radius: 10px;
-    padding: 1.25rem;
-  }
-  .card h3 { margin-top: 0; color: var(--azul); font-size: 1.05rem; }
-  .card p { font-size: 0.92rem; color: #445; margin-bottom: 0; }
-  .demo-note {
-    background: #fff7e0;
-    border: 1px solid #e8d38a;
-    border-radius: 8px;
-    padding: 0.9rem 1.1rem;
-    font-size: 0.9rem;
-    margin: 1.5rem 0;
-  }
-  .calc {
-    background: white;
-    border: 1px solid var(--borde);
-    border-radius: 10px;
-    padding: 1.5rem;
-    margin-top: 1.5rem;
-  }
-  .calc h3 { margin-top: 0; color: var(--azul); }
-  .campo { margin-bottom: 1rem; }
-  .campo label { display: block; font-size: 0.88rem; font-weight: 600; margin-bottom: 0.3rem; }
-  .campo input, .campo select {
-    width: 100%;
-    padding: 0.55rem 0.7rem;
-    border: 1px solid var(--borde);
-    border-radius: 6px;
-    font-size: 0.95rem;
-  }
-  .fila { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-  @media (max-width: 480px) { .fila { grid-template-columns: 1fr; } }
-  button {
-    background: var(--azul-claro);
-    color: white;
-    border: none;
-    padding: 0.65rem 1.4rem;
-    border-radius: 6px;
-    font-size: 0.95rem;
-    cursor: pointer;
-  }
-  button:hover { background: var(--azul); }
-  .resultado {
-    margin-top: 1.25rem;
-    padding: 1rem;
-    border-radius: 8px;
-    background: #eef6f0;
-    border: 1px solid var(--verde);
-    display: none;
-  }
-  .resultado.visible { display: block; }
-  .resultado .valor-grande { font-size: 1.5rem; font-weight: 700; color: var(--verde); }
-  .resultado .detalle { font-size: 0.88rem; color: #556; margin-top: 0.4rem; }
-  footer {
-    text-align: center;
-    padding: 2rem 1.5rem;
-    font-size: 0.85rem;
-    color: #778;
-  }
-  .radio-group { display: flex; gap: 1.25rem; margin-top: 0.3rem; }
-  .radio-group label { font-weight: 400; font-size: 0.9rem; display: flex; align-items: center; gap: 0.35rem; }
+:root { --azul:#173d35; --azul-claro:#285d4e; --verde:#285d4e; --amarillo:#795319;
+ --rojo:#982c24; --fondo:#f6f4ed; --texto:#173d35; --borde:#cbd3c9; }
+* { box-sizing:border-box; } html { color-scheme:light; scroll-behavior:smooth; }
+body { margin:0; font-family:"Segoe UI",sans-serif; color:var(--texto); background:var(--fondo); line-height:1.65; }
+::selection { background:#c8ddc9; color:#173d35; }
+a { color:var(--azul-claro); text-underline-offset:.25em; }
+:focus-visible { outline:3px solid #a45f22; outline-offset:5px; }
+.salto { position:absolute; top:-100px; left:16px; padding:12px; background:#fffef9; z-index:10; }
+.salto:focus { top:12px; }
+.barra-sitio { max-width:1160px; margin:auto; padding:24px 40px; display:flex; justify-content:space-between; gap:24px; border-bottom:1px solid var(--borde); }
+.barra-sitio a:first-child { font-weight:700; font-size:23px; letter-spacing:-.03em; text-decoration:none; }
+header.hero { max-width:1160px; margin:auto; padding:64px 40px 56px; }
+h1,h2 { font-family:Georgia,serif; font-weight:400; letter-spacing:-.025em; line-height:1.13; text-wrap:balance; }
+header.hero h1 { font-size:clamp(2.5rem,5vw,4.4rem); margin:0 0 28px; max-width:18ch; }
+header.hero p { font-size:19px; max-width:60ch; color:#465a51; }
+nav { display:flex; gap:24px; flex-wrap:wrap; margin-top:32px; }
+nav a { padding:10px 0; }
+main { max-width:1160px; margin:auto; padding:0 40px; }
+section { padding:56px 0; border-top:1px solid var(--borde); scroll-margin-top:24px; }
+h2 { font-size:clamp(1.8rem,3vw,2.7rem); margin:0 0 24px; }
+h3 { font-size:20px; line-height:1.3; margin:0 0 16px; font-weight:600; }
+p { max-width:72ch; }
+.servicios-grid { display:grid; grid-template-columns:1fr 1fr; gap:40px 56px; margin-top:40px; }
+.card { padding:0; }
+.card p { color:#465a51; margin:0; }
+.sectores-grid { margin:32px 0; display:grid; grid-template-columns:1fr 1fr; gap:28px 56px; }
+.sectores-grid .card { padding:20px 0; border-top:1px solid var(--borde); }
+.demo-note { background:#eee8d8; color:#4c4b36; border-radius:12px; padding:20px 24px; margin:32px 0 0; font-size:14px; }
+.calc { background:#fffef9; padding:32px; border-radius:14px; margin-top:32px; }
+.calc h3 { font-size:24px; }
+.campo { margin-bottom:20px; }
+.campo label { display:block; font-size:14px; font-weight:600; margin-bottom:8px; }
+.campo input,.campo select { width:100%; min-height:46px; padding:10px 12px; border:1px solid #91a296; border-radius:6px; font:inherit; color:var(--texto); background:#fffef9; caret-color:var(--azul); }
+.campo input[type=radio] { width:18px; height:18px; min-height:0; padding:0; margin:0; accent-color:var(--azul); }
+.radio-group { display:flex; flex-wrap:wrap; gap:16px 24px; }
+.radio-group label { display:flex; align-items:center; gap:10px; margin:0; font-weight:400; min-height:44px; }
+.fila { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+button { background:var(--azul); color:#fffef9; border:0; border-radius:6px; padding:13px 24px; font:inherit; font-weight:600; cursor:pointer; }
+button:hover { background:#285d4e; } button:disabled { opacity:.65; cursor:default; }
+.resultado { display:none; margin-top:24px; padding:24px; border-radius:12px; background:#e9ede2; }
+.resultado.visible { display:block; }
+.resultado .valor-grande { font-size:25px; font-weight:600; font-variant-numeric:tabular-nums; }
+.resultado .detalle { color:#465a51; font-size:14px; margin-top:12px; }
+footer { max-width:1160px; margin:auto; padding:32px 40px 48px; color:#465a51; font-size:13px; border-top:1px solid var(--borde); }
+@media(max-width:768px) { .barra-sitio { padding:20px 24px; flex-wrap:wrap; gap:12px; } header.hero { padding:40px 24px; } main { padding:0 24px; } section { padding:40px 0; } .servicios-grid,.sectores-grid { grid-template-columns:1fr; gap:28px; } .calc { padding:24px; } footer { padding:24px; } }
+@media(max-width:480px) { .fila { grid-template-columns:1fr; gap:0; } nav { gap:16px; } }
+@media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
 </style>
 </head>
 <body>
+<a class="salto" href="#contenido">Saltar al contenido</a>
+<div class="barra-sitio"><a href="../index.html">Consultora</a><a href="../index.html">Explorar ejemplos ficticios</a></div>
 
 <header class="hero">
   <h1>Consultoría económica AI-native</h1>
@@ -154,7 +75,7 @@
   </nav>
 </header>
 
-<main>
+<main id="contenido">
 
 <section id="servicios">
   <h2>Qué hacemos</h2>
@@ -213,9 +134,8 @@
     </div>
   </div>
   <div class="demo-note">
-    Todas las herramientas de arriba están construidas y funcionando
-    sobre datos de demostración. Pedí una demo en vivo con tu propio
-    balance en la sección de contacto.
+    Explorá las herramientas con empresas ficticias en el <a href="../index.html">catálogo de ejemplos</a>.
+    Los datos reales se procesan exclusivamente en la herramienta local.
   </div>
 </section>
 
@@ -244,7 +164,7 @@
       <select id="fecha-destino"></select>
     </div>
     <button onclick="calcularInflacion()">Calcular</button>
-    <div class="resultado" id="resultado-inflacion">
+    <div class="resultado" aria-live="polite" aria-atomic="true" id="resultado-inflacion">
       <div class="valor-grande" id="resultado-inflacion-valor"></div>
       <div class="detalle" id="resultado-inflacion-detalle"></div>
     </div>
@@ -283,7 +203,7 @@
       </div>
     </div>
     <button onclick="calcularMargen()">Calcular</button>
-    <div class="resultado" id="resultado-margen">
+    <div class="resultado" aria-live="polite" aria-atomic="true" id="resultado-margen">
       <div class="valor-grande" id="resultado-margen-valor"></div>
       <div class="detalle" id="resultado-margen-detalle"></div>
     </div>
@@ -309,7 +229,7 @@
       <select id="fecha-destino-icl"></select>
     </div>
     <button onclick="calcularIcl()">Calcular</button>
-    <div class="resultado" id="resultado-icl">
+    <div class="resultado" aria-live="polite" aria-atomic="true" id="resultado-icl">
       <div class="valor-grande" id="resultado-icl-valor"></div>
       <div class="detalle" id="resultado-icl-detalle"></div>
     </div>
@@ -353,7 +273,7 @@
       </div>
     </div>
     <button onclick="calcularMonotributo()">Calcular</button>
-    <div class="resultado" id="resultado-monotributo">
+    <div class="resultado" aria-live="polite" aria-atomic="true" id="resultado-monotributo">
       <div class="valor-grande" id="resultado-monotributo-valor"></div>
       <div class="detalle" id="resultado-monotributo-detalle"></div>
     </div>
@@ -363,8 +283,8 @@
 <section id="contacto">
   <h2>Contacto</h2>
   <p>
-    Completar cuando esté definido el canal (email / formulario) —
-    ver <code>docs/comercial/plan-de-contacto.md</code>.
+    El canal de contacto estará disponible cuando se publique la presentación institucional.
+    Por ahora podés recorrer los <a href="../index.html">ejemplos ficticios</a>.
   </p>
 </section>
 

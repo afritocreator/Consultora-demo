@@ -1,10 +1,75 @@
-<!doctype html><html lang="es"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-body { font-family: system-ui, sans-serif; color: #19324a; background: #fff;
-       max-width: 960px; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; }
-a { color: #12667b; }
-.aviso-demo { padding: 1rem; background: #edf5f8; border-radius: .5rem; }
-.navegacion-demo { display: flex; gap: 1rem; flex-wrap: wrap; margin: 1rem 0; }
-table { border-collapse: collapse; width: 100%; }
-td, th { padding: .5rem; text-align: left; border-bottom: 1px solid #ddd; }
-</style><title>Finanzas ficticias</title><p class="aviso-demo">Demo del proyecto Consultora con empresas ficticias. No admite datos de clientes. Los ejemplos ilustran capacidades del software y requieren revisión de supuestos antes de un uso profesional.</p><nav class="navegacion-demo" aria-label="Navegación de la demo"><a href="index.html">Catálogo de ejemplos</a><a href="finanzas.html" download>Descargar esta página HTML</a></nav><h1>Finanzas ficticias</h1><p>Valor de empresa: 3,719.71 ARS; valor de patrimonio: 3,569.71 ARS.</p><p>Alternativa de menor costo real: Crédito B.</p><p><a href="index.html">Volver</a></p></html>
+<!doctype html><html lang="es"><head><meta charset="utf-8"><title>Finanzas ficticias</title><meta name="viewport" content="width=device-width, initial-scale=1"><style>
+:root { --tinta:#173d35; --acento:#285d4e; --papel:#f6f4ed; --blanco:#fffef9;
+ --borde:#cbd3c9; --secundario:#465a51; --aviso:#eee8d8; }
+* { box-sizing:border-box; }
+html { color-scheme:light; scroll-behavior:smooth; }
+body.pagina-publica { margin:0; padding:0; max-width:none; background:var(--papel);
+ color:var(--tinta); font-family:"Segoe UI",sans-serif; font-size:16px; line-height:1.65; }
+::selection { background:#c8ddc9; color:#173d35; }
+.pagina-publica a { color:var(--acento); text-underline-offset:.24em; }
+.pagina-publica a:hover { color:#102e26; }
+.pagina-publica :focus-visible { outline:3px solid #a45f22; outline-offset:5px; }
+.salto { position:absolute; top:-100px; left:16px; background:var(--blanco);
+ padding:12px; z-index:10; }
+.salto:focus { top:12px; }
+.barra-publica { max-width:1240px; margin:auto; padding:24px 40px; display:flex;
+ justify-content:space-between; gap:24px; align-items:center;
+ border-bottom:1px solid var(--borde); }
+.marca { font-size:23px; font-weight:700; letter-spacing:-.03em; text-decoration:none; }
+.barra-publica span { font-size:13px; color:var(--secundario); }
+.contenido-publico { max-width:1160px; margin:0 auto; padding:40px; }
+.pagina-publica h1,.pagina-publica h2 { color:var(--tinta); font-family:Georgia,serif;
+ font-weight:400; letter-spacing:-.025em; line-height:1.13; text-wrap:balance; }
+.pagina-publica h1 { font-size:clamp(2.5rem,5vw,4.4rem); max-width:19ch; margin:32px 0 24px; }
+.pagina-publica h2 { font-size:clamp(1.65rem,3vw,2.5rem); border:0; padding:0;
+ margin:48px 0 20px; }
+.pagina-publica h3 { line-height:1.3; }
+.pagina-publica p { max-width:72ch; }
+.aviso-demo { color:#4c4b36; background:var(--aviso); padding:16px 20px; border-radius:12px;
+ font-size:14px; margin:24px 0; max-width:none!important; }
+.navegacion-demo { display:flex; flex-wrap:wrap; gap:24px; margin:0 0 32px; font-size:14px; }
+.navegacion-demo a { padding:8px 0; }
+.introduccion { font-size:19px; color:var(--secundario); max-width:56ch!important; }
+.recorridos { margin:40px 0 64px; display:grid; grid-template-columns:1.35fr 1fr 1fr; gap:24px; }
+.recorrido { display:flex; flex-direction:column; align-items:flex-start; padding:28px;
+ background:#e9ede2; border-radius:14px; }
+.recorrido:first-child { background:var(--tinta); color:var(--blanco); }
+.pagina-publica .recorrido:first-child h2,
+.pagina-publica .recorrido:first-child a { color:var(--blanco); }
+.pagina-publica .recorrido h2 { font-size:29px; margin:0 0 16px; }
+.recorrido p { margin:0 0 24px; }
+.recorrido a { margin-top:auto; font-weight:600; padding:10px 0; }
+.lista-empresas { list-style:none; padding:0; margin:24px 0 56px; }
+.lista-empresas li { display:flex; justify-content:space-between; gap:24px; flex-wrap:wrap;
+ padding:22px 0; border-top:1px solid var(--borde); }
+.lista-empresas strong { font-size:19px; font-weight:500; }
+.lista-empresas .acciones { display:flex; gap:24px; flex-wrap:wrap; }
+.herramientas { list-style:none; padding:0; display:grid; grid-template-columns:1fr 1fr;
+ column-gap:48px; }
+.herramientas li { padding:17px 0; border-top:1px solid var(--borde); }
+.herramientas a { display:block; }
+.pie-publico { max-width:1160px; margin:auto; padding:28px 40px 40px; color:var(--secundario);
+ font-size:13px; border-top:1px solid var(--borde); }
+.pagina-publica table { width:100%; border-collapse:collapse;
+ font-variant-numeric:tabular-nums; font-size:15px; }
+.pagina-publica td,.pagina-publica th { padding:13px 16px; text-align:left;
+ border-bottom:1px solid var(--borde); overflow-wrap:anywhere; }
+.pagina-publica th { background:var(--tinta); color:var(--blanco); font-weight:500; }
+.pagina-publica tbody tr:nth-child(even) { background:#ecefe6; }
+.pagina-publica .advertencia { border:0; border-radius:12px; background:#f3e1dc;
+ color:#832919; padding:20px; }
+.pagina-publica .resumen-item { margin:16px 32px 16px 0; }
+.pagina-publica .resumen-item .valor { color:var(--tinta); }
+@media(max-width:768px) {
+ .barra-publica { padding:20px 24px; } .contenido-publico { padding:24px; }
+ .recorridos { grid-template-columns:1fr; gap:16px; margin:32px 0 48px; }
+ .recorrido { padding:24px; } .herramientas { grid-template-columns:1fr; }
+ .lista-empresas li { gap:12px; } .pie-publico { padding:24px; }
+ .pagina-publica td,.pagina-publica th { padding:10px 8px; font-size:13px; }
+}
+@media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+@media print {
+ .barra-publica,.navegacion-demo,.salto { display:none; }
+ body.pagina-publica { background:white; } .contenido-publico { padding:0; }
+ .recorridos { display:block; } .recorrido { break-inside:avoid; }
+}</style></head><body class="pagina-publica"><a class="salto" href="#contenido">Saltar al contenido</a><header class="barra-publica"><a class="marca" href="index.html">Consultora</a><span>Empresas ficticias · acceso sin registro</span></header><main id="contenido" class="contenido-publico"><nav class="navegacion-demo" aria-label="Navegación de la demo"><a href="index.html">Catálogo de ejemplos</a><a href="finanzas.html" download>Descargar esta página HTML</a></nav><h1>Finanzas ficticias</h1><p>Valor de empresa: 3,719.71 ARS; valor de patrimonio: 3,569.71 ARS.</p><p>Alternativa de menor costo real: Crédito B.</p><p><a href="index.html">Volver</a></p><p class="aviso-demo">Demo del proyecto Consultora con empresas ficticias. No admite datos de clientes. Los ejemplos ilustran capacidades del software y requieren revisión de supuestos antes de un uso profesional.</p></main><footer class="pie-publico">Demostración sintética. Los datos reales se procesan en la herramienta local.</footer></body></html>
